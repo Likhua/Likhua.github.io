@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-07-07T12:00:46.227Z</updated>
+  <updated>2024-07-07T12:30:25.865Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JS及编辑原理</title>
+    <link href="http://example.com/2024/05/01/JS%E8%BE%83%E4%B8%BA%E6%A0%B9%E6%9C%AC%E7%9A%84%E9%97%AE%E9%A2%98%E2%80%94%E2%80%94%E6%8F%90%E5%8D%87/"/>
+    <id>http://example.com/2024/05/01/JS%E8%BE%83%E4%B8%BA%E6%A0%B9%E6%9C%AC%E7%9A%84%E9%97%AE%E9%A2%98%E2%80%94%E2%80%94%E6%8F%90%E5%8D%87/</id>
+    <published>2024-05-01T10:19:21.000Z</published>
+    <updated>2024-07-07T12:30:25.865Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="JS较为根本的问题——提升"><a href="#JS较为根本的问题——提升" class="headerlink" title="JS较为根本的问题——提升"></a>JS较为根本的问题——提升</h1><h2 id="执行顺序问题"><a href="#执行顺序问题" class="headerlink" title="执行顺序问题"></a>执行顺序问题</h2><p>我们在JavaScript初期的学习过程中，有相当的教科书以及老师会告诉我们JavaScript是由上到下逐行执行的，这在大多数情况下都是正确的，但是凡事都有例外，如下：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = 2;</span><br><span class="line">var a;</span><br><span class="line">console.log(a);</span><br></pre></td></tr></table></figure><p>上面的代码，很多人可能会先入为主认为是undefined，因为<code>var a</code>声明在<code>a = 2</code>之后，自然而然会认为变量被重新赋值了，因此认为是undefined，然而事实输出结果是2.<br>再考虑如下代码：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">console.log(a);</span><br><span class="line">var a = 2;</span><br><span class="line">```   </span><br><span class="line">由上一个代码块表现出来异于自上而下的特性，在这影响下又回回到上一个误区，认为这里的输出为2，还有人会认为这里会报错，然而这个代码块的输出是undefined</span><br><span class="line">因此我们此处面临着类似于世界上是先有鸡还是先有蛋的怪圈。</span><br><span class="line">## 编译器的影响</span><br><span class="line">正确的思考思路是，包括变量和函数在内的所有声明都会在任何代码被执行前首先被处理。</span><br><span class="line">当我们看到`var a = 2;`时，可能下意识认为这是一个声明，但是JS编译器实质上会将其看成两个声明，即：`var a;` 和 `a=2` ,第一个声明是在编译阶段进行的，第二个赋值则在原地等待执行阶段。</span><br><span class="line">我们的第一个代码段会这样进行处理：</span><br></pre></td></tr></table></figure><p>var a;<br>a &#x3D; 2;<br>console.log(a);</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">第一部分是编译，第二部分是执行。</span><br><span class="line">我们的第二个代码段会这样进行处理：</span><br></pre></td></tr></table></figure><p>var a;<br>console.log(a);<br>a &#x3D; 2;</p><pre><code>这样的过程，就像变量和函数声明把它们从代码出现的位置移动到了最上面。这个过程被叫做提升。**只有声明本身会被提升，而赋值或其他运行逻辑会留在原地。如果提升改变了代码执行的顺序，会造成相当严重的破坏**</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;JS较为根本的问题——提升&quot;&gt;&lt;a href=&quot;#JS较为根本的问题——提升&quot; class=&quot;headerlink&quot; title=&quot;JS较为根本的问题——提升&quot;&gt;&lt;/a&gt;JS较为根本的问题——提升&lt;/h1&gt;&lt;h2 id=&quot;执行顺序问题&quot;&gt;&lt;a href=&quot;#执行顺</summary>
+      
+    
+    
+    
+    
+    <category term="提升" scheme="http://example.com/tags/%E6%8F%90%E5%8D%87/"/>
+    
+  </entry>
   
   <entry>
     <title>JS及编辑原理</title>
