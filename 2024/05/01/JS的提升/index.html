@@ -22,7 +22,7 @@
 
   
 
-  <title>JS较为根本的问题——提升 | Likhua</title>
+  <title>JavaScript的提升 | Likhua</title>
 
   
 
@@ -100,7 +100,7 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">JS较为根本的问题——提升</h1>
+          <h1 class="title-wrap">JavaScript的提升</h1>
           <h2 class="title-sub-wrap">
             <strong>赵守恒</strong>
             <span>发布于</span>
@@ -109,7 +109,7 @@
           
             <h2 class="last-time">
               <span>最后更新于</span>
-              <time  class="article-updated" datetime="2024-07-07T12:32:40.623Z" itemprop="dateUpdated">2024-07-07</time>
+              <time  class="article-updated" datetime="2024-07-08T01:43:28.239Z" itemprop="dateUpdated">2024-07-08</time>
             </h2>
           
           
@@ -142,7 +142,7 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <h1 id="JS较为根本的问题——提升"><a href="#JS较为根本的问题——提升" class="headerlink" title="JS较为根本的问题——提升"></a>JS较为根本的问题——提升</h1><h2 id="执行顺序问题"><a href="#执行顺序问题" class="headerlink" title="执行顺序问题"></a>执行顺序问题</h2><p>我们在JavaScript初期的学习过程中，有相当的教科书以及老师会告诉我们JavaScript是由上到下逐行执行的，这在大多数情况下都是正确的，但是凡事都有例外，如下：</p>
+        <h1 id="JavaScript的提升"><a href="#JavaScript的提升" class="headerlink" title="JavaScript的提升"></a>JavaScript的提升</h1><h2 id="执行顺序问题"><a href="#执行顺序问题" class="headerlink" title="执行顺序问题"></a>执行顺序问题</h2><p>我们在JavaScript初期的学习过程中，有相当的教科书以及老师会告诉我们JavaScript是由上到下逐行执行的，这在大多数情况下都是正确的，但是凡事都有例外，如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = 2;</span><br><span class="line">var a;</span><br><span class="line">console.log(a);</span><br></pre></td></tr></table></figure>
 <p>上面的代码，很多人可能会先入为主认为是undefined，因为<code>var a</code>声明在<code>a = 2</code>之后，自然而然会认为变量被重新赋值了，因此认为是undefined，然而事实输出结果是2.<br>再考虑如下代码：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(a);</span><br><span class="line">var a = 2;</span><br></pre></td></tr></table></figure>
@@ -154,6 +154,15 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a;</span><br><span class="line">console.log(a);</span><br><span class="line">a = 2;</span><br></pre></td></tr></table></figure>
 <p>这样的过程，就像变量和函数声明把它们从代码出现的位置移动到了最上面。这个过程被叫做提升。</p>
 <p><strong>只有声明本身会被提升，而赋值或其他运行逻辑会留在原地。如果提升改变了代码执行的顺序，会造成相当严重的破坏</strong></p>
+<h2 id="对函数的声明"><a href="#对函数的声明" class="headerlink" title="对函数的声明"></a>对函数的声明</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">foo();</span><br><span class="line">function foo()&#123;</span><br><span class="line">console.log(a);</span><br><span class="line">var a = 2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>有了上面对于变量的提升，相比很容易就能联想到这里的函数<code>foo()</code>应该也是能提升的，因此第一行中的调用可以正常执行。<br>值得注意的是，每一个作用于都会进行提升操作，就如我们正在讨论的<code>foo()</code>函数内部也对<code>var a</code>进行提升，当然不是提升到整个程序的最上方，更贴切的说这里的提升是限定在作用域内的。因此会被理解为下面的代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function foo()&#123;</span><br><span class="line">    var a;</span><br><span class="line">    console.log(a);//undefined</span><br><span class="line">    a = 2;</span><br><span class="line">&#125;</span><br><span class="line">foo();</span><br></pre></td></tr></table></figure>
+<p><strong>实践是检验真理的唯一标准，没有任何教科书会确保自己不会出错，实践出真知！</strong><br>可以看到上面代码块中，函数声明被提升了，但是函数表达式却不会被提升。再看下面的代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">foo();//这里不是ReferenceError,而是TypeError!</span><br><span class="line">var foo = function bar()&#123;</span><br><span class="line">    //...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面程序中的变量标识符<code>foo()</code>，被提升分配给了所在作用域（此处是全局作用域），所以并不导致ReferenceError，但是foo()并没有被赋值，因为这里是函数表达式而不是函数声明。此处foo()调用了undefined，从而导致非法操作，因此报错TypeError。<br>ps：各位可能对于ReferenceError&#x2F;TypeError的意义不是很明确，因此下面进行补充。</p>
+<h4 id="ReferenceError-TypeError"><a href="#ReferenceError-TypeError" class="headerlink" title="ReferenceError&#x2F;TypeError"></a>ReferenceError&#x2F;TypeError</h4><p><del>这些都是较为基础的知识点，因此这里不会特别详细。</del></p>
+<h5 id="Reference-引用错误"><a href="#Reference-引用错误" class="headerlink" title="Reference(引用错误)"></a>Reference(引用错误)</h5><p>当尝试访问一个未被声明或定义的变量时发生。<br>因为在JavaScript中，必须在使用变量之前声明&#x3D;&gt;var、let、const<br>当然，我们上文也对声明提升问题进行了讨论。</p>
+<h5 id="TypeError-类型错误"><a href="#TypeError-类型错误" class="headerlink" title="TypeError(类型错误)"></a>TypeError(类型错误)</h5><p>当尝试对错误类型的值执行不被允许的操作时发生。通常表明在操作中使用了不兼容的数据类型。</p>
 
       </section>
 
