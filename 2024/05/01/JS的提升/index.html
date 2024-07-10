@@ -22,7 +22,7 @@
 
   
 
-  <title>JavaScript的提升 | Likhua</title>
+  <title>JavaScript的提升 | 吾愿随风去</title>
 
   
 
@@ -41,7 +41,7 @@
   
 <link rel="stylesheet" href="/css/style.css">
 
-<link rel="alternate" href="/atom.xml" title="Likhua" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="吾愿随风去" type="application/atom+xml">
 </head>
 <body>
   <div class="root-container">
@@ -59,7 +59,7 @@
     <div class="navbar-logo">
       <a href="/">
         
-          Likhua
+          吾愿随风去
         
       </a>
     </div>
@@ -109,7 +109,7 @@
           
             <h2 class="last-time">
               <span>最后更新于</span>
-              <time  class="article-updated" datetime="2024-07-08T01:43:28.239Z" itemprop="dateUpdated">2024-07-08</time>
+              <time  class="article-updated" datetime="2024-07-10T01:24:16.100Z" itemprop="dateUpdated">2024-07-10</time>
             </h2>
           
           
@@ -159,10 +159,21 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function foo()&#123;</span><br><span class="line">    var a;</span><br><span class="line">    console.log(a);//undefined</span><br><span class="line">    a = 2;</span><br><span class="line">&#125;</span><br><span class="line">foo();</span><br></pre></td></tr></table></figure>
 <p><strong>实践是检验真理的唯一标准，没有任何教科书会确保自己不会出错，实践出真知！</strong><br>可以看到上面代码块中，函数声明被提升了，但是函数表达式却不会被提升。再看下面的代码：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">foo();//这里不是ReferenceError,而是TypeError!</span><br><span class="line">var foo = function bar()&#123;</span><br><span class="line">    //...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上面程序中的变量标识符<code>foo()</code>，被提升分配给了所在作用域（此处是全局作用域），所以并不导致ReferenceError，但是foo()并没有被赋值，因为这里是函数表达式而不是函数声明。此处foo()调用了undefined，从而导致非法操作，因此报错TypeError。<br>ps：各位可能对于ReferenceError&#x2F;TypeError的意义不是很明确，因此下面进行补充。</p>
+<p>上面程序中的变量标识符<code>foo()</code>，被提升分配给了所在作用域（此处是全局作用域），所以并不导致ReferenceError，但是foo()并没有被赋值，因为这里是函数表达式而不是函数声明。此处foo()调用了undefined，从而导致非法操作，因此报错TypeError。<br>即便是具名的函数表达式，名称标识符在赋值之前也无法在所在作用域中使用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">foo();</span><br><span class="line">bar():</span><br><span class="line">var foo = function bar()&#123;</span><br><span class="line">    //...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>该代码经过提升后，实际会被理解为以下形式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var foo;</span><br><span class="line">foo();</span><br><span class="line">bar();</span><br><span class="line">foo = function()&#123;</span><br><span class="line">    var bar = ...</span><br><span class="line">    //...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ps：各位可能对于ReferenceError&#x2F;TypeError的意义不是很明确，因此下面进行补充。</p>
 <h4 id="ReferenceError-TypeError"><a href="#ReferenceError-TypeError" class="headerlink" title="ReferenceError&#x2F;TypeError"></a>ReferenceError&#x2F;TypeError</h4><p><del>这些都是较为基础的知识点，因此这里不会特别详细。</del></p>
 <h5 id="Reference-引用错误"><a href="#Reference-引用错误" class="headerlink" title="Reference(引用错误)"></a>Reference(引用错误)</h5><p>当尝试访问一个未被声明或定义的变量时发生。<br>因为在JavaScript中，必须在使用变量之前声明&#x3D;&gt;var、let、const<br>当然，我们上文也对声明提升问题进行了讨论。</p>
 <h5 id="TypeError-类型错误"><a href="#TypeError-类型错误" class="headerlink" title="TypeError(类型错误)"></a>TypeError(类型错误)</h5><p>当尝试对错误类型的值执行不被允许的操作时发生。通常表明在操作中使用了不兼容的数据类型。</p>
+<h2 id="函数优先"><a href="#函数优先" class="headerlink" title="函数优先"></a>函数优先</h2><p>经过我们上面的讨论，发现不论是函数声明还是变量声明都会提升。需要补充的是，函数首先被提升然后才是变量，参考如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">foo()   // 1</span><br><span class="line">var foo;</span><br><span class="line">function foo()&#123;</span><br><span class="line">    console.log(1);</span><br><span class="line">&#125;</span><br><span class="line">foo = function()&#123;</span><br><span class="line">    console.log(2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的输出是1而不是2。在引擎的理解下，会整理成如下形式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function foo()&#123;</span><br><span class="line">    console.log(1);</span><br><span class="line">&#125;</span><br><span class="line">foo();</span><br><span class="line">foo = function()&#123;</span><br><span class="line">    console.log(2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>函数声明会被提升到普通变量，比如：<code>var foo</code>尽管出现在<code>function foo()...</code>之前，但是由于是重复的声明，因此被忽略。<br>重复的<code>var</code>声明会被忽略，但出现在后面的函数声明依然可以覆盖前面的，参考下面的代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">foo();  // 3</span><br><span class="line">function foo()&#123;</span><br><span class="line">    console.log(1);</span><br><span class="line">&#125;</span><br><span class="line">var foo = function()&#123;</span><br><span class="line">    console.log（2）；</span><br><span class="line">&#125;</span><br><span class="line">function foo()&#123;</span><br><span class="line">    console.log(3);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在同一个作用域中重复定义是非常糟糕的，可能会导致一些特别奇怪无法预测的问题&#x3D;&gt;这些听起来就是无用的学院派理论，但是非常需要注意。<br><strong>无论如何，光看不练始终是没有用的</strong></p>
 
       </section>
 
