@@ -376,7 +376,7 @@ class MyClass extends myMixin &#123;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/06/03/%E5%89%8D%E7%AB%AF%E5%BA%94%E7%9F%A5%E5%BA%94%E4%BC%9A/" data-id="clzao3mvu0005dhzoeidyblwh" data-title="前端应知应会" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/06/03/%E5%89%8D%E7%AB%AF%E5%BA%94%E7%9F%A5%E5%BA%94%E4%BC%9A/" data-id="clzaxulws00064hzo2efx7aim" data-title="前端应知应会" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -449,7 +449,7 @@ class MyClass extends myMixin &#123;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/01/JS%E7%9A%84%E6%8F%90%E5%8D%87/" data-id="clzao3mvt0004dhzo09qk7yz0" data-title="JavaScript的提升" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/01/JS%E7%9A%84%E6%8F%90%E5%8D%87/" data-id="clzaxulwr00044hzo5z20anuo" data-title="JavaScript的提升" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -496,11 +496,80 @@ class MyClass extends myMixin &#123;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/04/22/JS%E5%8F%8A%E7%BC%96%E8%BE%91%E5%8E%9F%E7%90%86/" data-id="clzao3mvr0002dhzoa3oecwoe" data-title="JS及编辑原理" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/04/22/JS%E5%8F%8A%E7%BC%96%E8%BE%91%E5%8E%9F%E7%90%86/" data-id="clzaxulwq00024hzo8zw346hw" data-title="JS及编辑原理" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">JavaScript编译原理</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-React Native" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/04/22/React%20Native/" class="article-date">
+  <time class="dt-published" datetime="2024-04-22T07:16:27.000Z" itemprop="datePublished">2024-04-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/04/22/React%20Native/">React Native</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="React-Native"><a href="#React-Native" class="headerlink" title="React Native"></a>React Native</h1><h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><h3 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h3><p>学习React Native的大前提是对JavaScript的基础知识有了一定了解，在不具备开发环境的设备中，我们可以使用Snack Player的沙盒环境继续模拟开发。</p>
+<h3 id="函数式组件与Class组件："><a href="#函数式组件与Class组件：" class="headerlink" title="函数式组件与Class组件："></a>函数式组件与Class组件：</h3><h4 id="函数式组件："><a href="#函数式组件：" class="headerlink" title="函数式组件："></a>函数式组件：</h4><p>函数式组件是接收<code>props</code>作为参数并返回React元素的纯函数，没有状态（state），也没有实例（instance）。下面是一个简单的例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">FunCom</span>(<span class="params">props</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        &#123;props.message&#125;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="优缺点："><a href="#优缺点：" class="headerlink" title="优缺点："></a>优缺点：</h5><p><em>优点：</em></p>
+<ol>
+<li>更简介：函数式组件不需要继承<code>React.Component</code>，编写起来更加的简洁</li>
+<li>无需<code>this</code>：避免了<code>this</code>关键字相关的问题</li>
+<li>复用性及组合性好：函数式组件更易于进行组合复用</li>
+<li>性能更好：函数时组件在渲染时开销更小</li>
+<li>支持使用Hooks：可以使用React Hooks来实现状态管理以及副作用操作<br><em>缺点：</em></li>
+<li>已被新版本解决——有限的状态管理：字React 16.8起，引入Hooks，使得函数时组件也可以管理状态和处理副作用。</li>
+</ol>
+<h4 id="Class组件："><a href="#Class组件：" class="headerlink" title="Class组件："></a>Class组件：</h4><p>类组件（Class组件）是使用ES6类来定义的组件，继承自<code>React.Component</code>,可以包含状态(state)以及生命周期方法(lifecycle methods)，下面是一个简单的例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ClassCom</span> <span class="keyword">extends</span> <span class="title class_ inherited__">React.Component</span>&#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">props</span>)&#123;</span><br><span class="line">        <span class="variable language_">super</span>(props);</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">state</span>=&#123;</span><br><span class="line">            <span class="attr">message</span>:<span class="string">&quot;Hello World!&quot;</span></span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">render</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">return</span>(</span><br><span class="line">            <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                &#123;this.state.message&#125;</span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><em>优点：</em></p>
+<ol>
+<li>状态管理：类组件可以有自己的状态(state)和生命周期方法</li>
+<li>生命周期方法：提供了许多生命周期方法，方便执行各种操作</li>
+</ol>
+<p><em>缺点：</em></p>
+<ol>
+<li>更繁琐：较于函数式组件，类组件代码更加繁琐</li>
+<li><code>this</code>关键字：可能由于<code>this</code>关键字导致一些问题</li>
+<li>性能开销：在渲染创造示例时，可能带来额外的性能开销</li>
+<li>不支持Hooks：无法使用React Hooks来进行状态管理和副作用操作(可以通过高阶组件实现)</li>
+</ol>
+<p><em>除非有特殊原因需要使用类组件（如某些生命周期方法的依赖），否则推荐优先使用函数式组件</em></p>
+<h2 id="React基础："><a href="#React基础：" class="headerlink" title="React基础："></a>React基础：</h2><p>React Native的基础是React，对于React的学习建议参考程墨的《深入浅出React和Redux》，但是这本书里缺少Hooks的相关知识，因此对于Hooks部分可以<a target="_blank" rel="noopener" href="https://zh-hans.react.dev/reference/react/hooks">阅读React的官方Hooks文档</a><br>这里不会对React基础做出特别详细的解释说明，还是推荐大家阅读相关书籍</p>
+<h2 id="处理文本输入"><a href="#处理文本输入" class="headerlink" title="处理文本输入"></a>处理文本输入</h2><p>在React Native中，使用</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/04/22/React%20Native/" data-id="clzaxulwr00054hzo7ww285z1" data-title="React Native" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React-Native/" rel="tag">React Native</a></li></ul>
 
     </footer>
   </div>
@@ -573,7 +642,7 @@ class MyClass extends myMixin &#123;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/03/20/Hexo%E7%9A%84%E6%90%AD%E5%BB%BA/" data-id="clzao3mvq0001dhzo50n72eci" data-title="Hexo的搭建" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/03/20/Hexo%E7%9A%84%E6%90%AD%E5%BB%BA/" data-id="clzaxulwo00014hzobejuc2fl" data-title="Hexo的搭建" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -600,7 +669,7 @@ class MyClass extends myMixin &#123;
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">JavaScript编译原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8F%90%E5%8D%87/" rel="tag">提升</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">JavaScript编译原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Native/" rel="tag">React Native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8F%90%E5%8D%87/" rel="tag">提升</a></li></ul>
     </div>
   </div>
 
@@ -610,7 +679,7 @@ class MyClass extends myMixin &#123;
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JavaScript%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" style="font-size: 10px;">JavaScript编译原理</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E6%8F%90%E5%8D%87/" style="font-size: 10px;">提升</a>
+      <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JavaScript%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" style="font-size: 10px;">JavaScript编译原理</a> <a href="/tags/React-Native/" style="font-size: 10px;">React Native</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E6%8F%90%E5%8D%87/" style="font-size: 10px;">提升</a>
     </div>
   </div>
 
@@ -641,6 +710,10 @@ class MyClass extends myMixin &#123;
         
           <li>
             <a href="/2024/04/22/JS%E5%8F%8A%E7%BC%96%E8%BE%91%E5%8E%9F%E7%90%86/">JS及编辑原理</a>
+          </li>
+        
+          <li>
+            <a href="/2024/04/22/React%20Native/">React Native</a>
           </li>
         
           <li>
