@@ -6,15 +6,15 @@
   
   <title>Hexo的搭建 | 赵守恒</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Hexo最近计划搭建自己的博客，于是在CSDN，或是hexo官网查询搭建方式，发现各个平台都没有一套完整简洁的方法，而且或多或少都会遇见一些难以解决的问题，因此，整理了这一篇文档以供大家参考，用以使用Hexo来搭建大家自己的博客。Hexo使用Markdown来写文章，几秒时间就可以生成静态网页。 Hexo是什么？Hexo是一个基于Node.js的静态博客框架，与Github结合使用，允许用户通过G">
+  <meta name="description" content="[TOC] Hexo最近计划搭建自己的博客，于是在CSDN，或是hexo官网查询搭建方式，发现各个平台都没有一套完整简洁的方法，而且或多或少都会遇见一些难以解决的问题，因此，整理了这一篇文档以供大家参考，用以使用Hexo来搭建大家自己的博客。Hexo使用Markdown来写文章，几秒时间就可以生成静态网页。 Hexo是什么？Hexo是一个基于Node.js的静态博客框架，与Github结合使用，允">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo的搭建">
 <meta property="og:url" content="http://example.com/2024/03/20/Hexo%E7%9A%84%E6%90%AD%E5%BB%BA/index.html">
 <meta property="og:site_name" content="赵守恒">
-<meta property="og:description" content="Hexo最近计划搭建自己的博客，于是在CSDN，或是hexo官网查询搭建方式，发现各个平台都没有一套完整简洁的方法，而且或多或少都会遇见一些难以解决的问题，因此，整理了这一篇文档以供大家参考，用以使用Hexo来搭建大家自己的博客。Hexo使用Markdown来写文章，几秒时间就可以生成静态网页。 Hexo是什么？Hexo是一个基于Node.js的静态博客框架，与Github结合使用，允许用户通过G">
+<meta property="og:description" content="[TOC] Hexo最近计划搭建自己的博客，于是在CSDN，或是hexo官网查询搭建方式，发现各个平台都没有一套完整简洁的方法，而且或多或少都会遇见一些难以解决的问题，因此，整理了这一篇文档以供大家参考，用以使用Hexo来搭建大家自己的博客。Hexo使用Markdown来写文章，几秒时间就可以生成静态网页。 Hexo是什么？Hexo是一个基于Node.js的静态博客框架，与Github结合使用，允">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-03-20T07:16:27.000Z">
-<meta property="article:modified_time" content="2024-07-21T01:25:26.763Z">
+<meta property="article:modified_time" content="2024-08-01T02:39:18.878Z">
 <meta property="article:author" content="赵守恒">
 <meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
@@ -102,7 +102,8 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h1><p>最近计划搭建自己的博客，于是在CSDN，或是<a target="_blank" rel="noopener" href="https://hexo.io/zh-tw/">hexo官网</a>查询搭建方式，发现各个平台都没有一套完整简洁的方法，而且或多或少都会遇见一些难以解决的问题，因此，整理了这一篇文档以供大家参考，用以使用Hexo来搭建大家自己的博客。<br>Hexo使用Markdown来写文章，几秒时间就可以生成静态网页。</p>
+        <p>[TOC]</p>
+<h1 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h1><p>最近计划搭建自己的博客，于是在CSDN，或是<a target="_blank" rel="noopener" href="https://hexo.io/zh-tw/">hexo官网</a>查询搭建方式，发现各个平台都没有一套完整简洁的方法，而且或多或少都会遇见一些难以解决的问题，因此，整理了这一篇文档以供大家参考，用以使用Hexo来搭建大家自己的博客。<br>Hexo使用Markdown来写文章，几秒时间就可以生成静态网页。</p>
 <h2 id="Hexo是什么？"><a href="#Hexo是什么？" class="headerlink" title="Hexo是什么？"></a>Hexo是什么？</h2><p>Hexo是一个基于Node.js的静态博客框架，与Github结合使用，允许用户通过Github Pages<strong>免费</strong>托管和分享博客内容。<br>博客对于程序员来说，不仅仅是一个分享内容的平台，我们通常将开源项目分享在Github上，将学习心得整理在博客上，这里我整理Hexo的搭建方式也是为了方便大家对于Hexo的建立并且作为我分享的第一个文章。<br>我的师傅对我说过，一个程序员，能够在自己学习的历程中，记录下来笔记，写下心得是相当重要的，因此在他的引导下，我以Hexo为平台，分享记录自己相对重要的笔记以及体会。这里撰写内容使用的语言是Markdown，对于md编辑器通常使用Typora、mweb或者vscode，前两者需要收费才能开通全部功能，而vscode则完全免费使用，但是观感上并不如前两者好看以及好用，但是各个平台对于破解版软件的售卖基本毫无顾虑，所以很简单就能买到破解版软件，但是对于程序员来说版权是一个比较敏感的问题，如果没有经济实力可以使用破解版，如果未来发展成功补票上车来对软件开发团队的敬意其实也不无不可。<br>对于md撰写笔记有很多小指令，我后续会写一篇简短的文章来介绍。</p>
 <h3 id="Hexo的安装前提"><a href="#Hexo的安装前提" class="headerlink" title="Hexo的安装前提"></a>Hexo的安装前提</h3><p>安装Hexo非常简单：<br>    Node.js <em>版本不低于10.13，只要稍微注意就行，一般直接安装最新版本</em><br>    Git 对于程序员是经常使用或者说是必须了解的代码托管平台</p>
 <h4 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h4><p>Github主要是以程序员为主的全球最大的代码托管平台，主要作用是保存程序员编写的软件源代码，对于程序员来说Github绝对不陌生 <del>（如果不知道的，去墙角罚站）</del> ，因此这里就不对Github做过多描述了。<br>想要使用Hexo搭建属于自己的博客需要的前提就是要有自己的Github，并且完成通信。<br>所以本文并不对Github的基本使用做出描述，可能后续会写一些文章作为Github的教程。<br>可以点击本文的超链接跳转到Github官网：<a target="_blank" rel="noopener" href="https://github.com/">跳转到Github官网</a></p>
@@ -142,7 +143,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/03/20/Hexo%E7%9A%84%E6%90%AD%E5%BB%BA/" data-id="clzanzrqi0001bqzo78hl09ub" data-title="Hexo的搭建" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/03/20/Hexo%E7%9A%84%E6%90%AD%E5%BB%BA/" data-id="clzao3mvq0001dhzo50n72eci" data-title="Hexo的搭建" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
