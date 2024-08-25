@@ -99,7 +99,8 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="第一章-Flutter概述"><a href="#第一章-Flutter概述" class="headerlink" title="第一章 Flutter概述"></a>第一章 Flutter概述</h2><p>Flutter是Google开源的应用开发框架，仅通过一套代码库，就能构建精美的、原生平台编译的多平台应用。<br>Flutter、React Native(包括React)等跨平台语言均支持一套代码适配各个平台，但是目前各个跨平台开发语言的热度有所不同，其中热度尤为高涨的当属Flutter了。<br>对比Flutter以及React Native这两个跨平台移动应用开发框架，各有优劣，下面对于他们的性能特性等进行比较对比。</p>
+        <p><strong>《Flutter跨平台开发与实战》这本书非常荒谬，非常不适合小白新手入门</strong></p>
+<h2 id="第一章-Flutter概述"><a href="#第一章-Flutter概述" class="headerlink" title="第一章 Flutter概述"></a>第一章 Flutter概述</h2><p>Flutter是Google开源的应用开发框架，仅通过一套代码库，就能构建精美的、原生平台编译的多平台应用。<br>Flutter、React Native(包括React)等跨平台语言均支持一套代码适配各个平台，但是目前各个跨平台开发语言的热度有所不同，其中热度尤为高涨的当属Flutter了。<br>对比Flutter以及React Native这两个跨平台移动应用开发框架，各有优劣，下面对于他们的性能特性等进行比较对比。</p>
 <h3 id="1-1-Flutter与React-Native"><a href="#1-1-Flutter与React-Native" class="headerlink" title="1.1 Flutter与React Native"></a>1.1 Flutter与React Native</h3><p><strong>Flutter：</strong><br>优点：</p>
 <ul>
 <li>性能：Flutter使用的是Dart语言，有着自己的渲染引擎，能够提供更加接近原生应用的性能，能够制作包括流畅的动画以及高度定制的UI（并且由于更加接近底层，所以编译效率较高）</li>
@@ -144,8 +145,7 @@
 <li>使用Dart进行应用开发</li>
 </ol>
 <p>Flutter使用Dart进行应用开发。与传统的JavaScript相比，Dart在即时（Just In Time，JIT）编译模式下的速度与JavaScript基本持平，但是在静态（Ahead Of Time，AOT）编译模式下运行时，Dart的性能远高于JavaScript。<br>并且，Flutter使用Dart进行应用开发。与传统的JavaScript相比，Dart在即时（Just In Time，JIT）编译模式下的速度与JavaScript基本持平，但是在静态（Ahead Of Time，AOT）编译模式下运行时，Dart的性能远高于JavaScript。</p>
-<h3 id="1-3-Flutter框架"><a href="#1-3-Flutter框架" class="headerlink" title="1.3 Flutter框架"></a>1.3 Flutter框架</h3><p>Flutter与原生Andriod以及IOS系统一样，Flutter框架也是分层的结构，每层都建立在前一层的基础上，并且上层比下层的使用频率更高<img src="/assets/17236967774772.png" alt="17236967774772"></p>
-<p>由图可知，Flutter框架自上而下分为Embedder层、Engine层以及Framework层。<br>Embedder是操作系统适配层，实现了渲染Surface设置、线程设置，以及平台插件等平台相关特性的适配；<br>Engine层负责徒刑绘制、文字排版，Engine层具有独立虚拟机，由他的存在，Flutter程序才能运行在不同的平台上，实现跨平台运行；<br>Framework层是使用Dart编写的一套基础视图库，包括了动画、图形绘制和手势识别，是使用频率最高的一层。</p>
+<h3 id="1-3-Flutter框架"><a href="#1-3-Flutter框架" class="headerlink" title="1.3 Flutter框架"></a>1.3 Flutter框架</h3><p>Flutter与原生Andriod以及IOS系统一样，Flutter框架也是分层的结构，每层都建立在前一层的基础上，并且上层比下层的使用频率更高<br><img src="/assets/Flutter.png" alt="Flutter"><br>由图可知，Flutter框架自上而下分为Embedder层、Engine层以及Framework层。<br>Embedder是操作系统适配层，实现了渲染Surface设置、线程设置，以及平台插件等平台相关特性的适配；<br>Engine层负责徒刑绘制、文字排版，Engine层具有独立虚拟机，由他的存在，Flutter程序才能运行在不同的平台上，实现跨平台运行；<br>Framework层是使用Dart编写的一套基础视图库，包括了动画、图形绘制和手势识别，是使用频率最高的一层。</p>
 <h2 id="第二章-Dart基础"><a href="#第二章-Dart基础" class="headerlink" title="第二章 Dart基础"></a>第二章 Dart基础</h2><h3 id="2-1-Hello-World"><a href="#2-1-Hello-World" class="headerlink" title="2.1 Hello World"></a>2.1 Hello World</h3><p>与大多数程序语言相同，Dart将<code>main()</code>作为程序的入口，相较于Java而言，Dart简单的多。<br>让我们先编写一个简单的Dart</p>
 <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> main()&#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Hello World!!!&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>然后打开终端输入<code>dart 文件名.dart</code>然后控制台输出”Hello World!!!”</p>
@@ -177,11 +177,96 @@ const关键字不仅可以用于声明常量，还可以用来创建常量值，
 <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s=<span class="string">r&quot;In a raw string,even \n isn&#x27;t special&quot;</span>;</span><br></pre></td></tr></table></figure>
 <h5 id="3-Bool类型"><a href="#3-Bool类型" class="headerlink" title="3.Bool类型"></a>3.Bool类型</h5><p>Dart的Bool类型只有true和false两个值，并且Bool值是编译时的常量。因为Dart是一个强类型检查的语言，所以只有当Bool类型的值时ture时，其结果才是true，通俗的说，在其他语言中，0是false，大于0即为true，这样的情况在Dart中并不支持。<br>Dart的强类型检查并不代表不能够使用if&#x2F;assert，例如我们可以在Debug模式下，通过assert断言函数来判断Bool值，如下所示：</p>
 <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fullName=<span class="string">&#x27;&#x27;</span>;</span><br><span class="line"><span class="keyword">assert</span>(fullName.isEmpty);<span class="comment">//检查空字符串</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> hitPoints=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">assert</span>(hitPoints&lt;=<span class="number">0</span>);<span class="comment">//检查值是否为0</span></span><br></pre></td></tr></table></figure>
-<h5 id="4-List类型"><a href="#4-List类型" class="headerlink" title="4.List类型"></a>4.List类型</h5>
+<h5 id="4-List类型"><a href="#4-List类型" class="headerlink" title="4.List类型"></a>4.List类型</h5><p>在Dart中，List代表列表，与数组的概念是相同的，<br>在Dart中，List与JavaScript中的Array类型是一样的，如下所示：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> list=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];<span class="comment">//创建列表</span></span><br><span class="line"><span class="keyword">var</span> list2=<span class="keyword">new</span> list()<span class="comment">//通过构造函数的方式创建列表</span></span><br><span class="line"><span class="keyword">var</span> list3=<span class="keyword">const</span>[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];<span class="comment">//创建一个不可变的列表</span></span><br></pre></td></tr></table></figure>
+<p>与数组的概念相同，List的索引也从0开始，第一个元素的索引是0，最后一个元素的索引是<code>list.length-1</code>。访问List长度和元素与JS中的用法一样，如下图所示：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> list=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>];</span><br><span class="line"><span class="built_in">print</span>(list.length);<span class="comment">//输出6</span></span><br><span class="line"><span class="built_in">print</span>(list[list.length<span class="number">-1</span>]);<span class="comment">//输出6</span></span><br></pre></td></tr></table></figure>
+<h5 id="5-Set类型"><a href="#5-Set类型" class="headerlink" title="5.Set类型"></a>5.Set类型</h5><p>在Dart中，Set用来表示集合。<br>使用Set定义的集合，它的对象不需要按照特定的规则排列，如下所示：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> hw=&#123;<span class="string">&#x27;hello&#x27;</span>,<span class="string">&#x27;world&#x27;</span>&#125;;</span><br></pre></td></tr></table></figure>
+<p>对集合的访问和操作都是通过对象来实现的，因此集合中不能有重复的对象。要创建一个空集合，可以使用带有类型参数的{},或者将{}赋值给Set类型的变量，如下所示：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> names=&lt;<span class="built_in">String</span>&gt;&#123;&#125;;<span class="comment">//创建一个空集合</span></span><br></pre></td></tr></table></figure>
+<p>除外，Dart的集合还提供了add() addAll()等常用方法。</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> elements=&lt;<span class="built_in">String</span>&gt;&#123;&#125;;</span><br><span class="line">elements.add(<span class="string">&#x27;hello&#x27;</span>);</span><br><span class="line">elements.addAll(hw);</span><br></pre></td></tr></table></figure>
+<h5 id="6-Map类型"><a href="#6-Map类型" class="headerlink" title="6.Map类型"></a>6.Map类型</h5><p>在Dart中，Map以键值对(key-value)的形式进行存储。key和value可以是任何类型的对象，一个Map中，key只能出现一次，但是value确可以出现多次，如下所示：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gifts=&#123;</span><br><span class="line">    <span class="string">&#x27;first&#x27;</span>:<span class="string">&#x27;cat&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;second&#x27;</span>:<span class="string">&#x27;book&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;third&#x27;</span>:<span class="string">&#x27;toy&#x27;</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>也可以通过Map的构造函数来创建，如下所示：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gifts = <span class="built_in">Map</span>();</span><br><span class="line">gifts[<span class="string">&#x27;first&#x27;</span>]=<span class="string">&#x27;cat&#x27;</span>;</span><br><span class="line">gifts[<span class="string">&#x27;second&#x27;</span>]=<span class="string">&#x27;book&#x27;</span>;</span><br><span class="line">gifts[<span class="string">&#x27;third&#x27;</span>]=<span class="string">&#x27;toy&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p>如果想要创建一个不可变的Map对象，只需要在Map对象前添加const关键字即可，如下所示：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gifts=<span class="keyword">const</span>&#123;</span><br><span class="line">    <span class="string">&#x27;first&#x27;</span>:<span class="string">&#x27;cat&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;second&#x27;</span>:<span class="string">&#x27;book&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;xxx&#x27;</span>:<span class="string">&#x27;xxxx&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="7-Rune类型"><a href="#7-Rune类型" class="headerlink" title="7.Rune类型"></a>7.Rune类型</h5><p>在Dart中，Rune类型用来表示UTF-32字符串，并能够将文字转换成符号表情或者代表特定含义的文字。如下所示：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> clapping = <span class="string">&#x27;\u&#123;1f44f&#125;&#x27;</span>;</span><br><span class="line"><span class="built_in">print</span>(clapping);</span><br><span class="line"><span class="built_in">print</span>(clapping.codeUnits);</span><br><span class="line"><span class="built_in">print</span>(clapping.runes.toList());</span><br><span class="line"></span><br><span class="line">Runes input = <span class="keyword">new</span> Runes(<span class="string">&#x27;\u2665  \u&#123;1f605&#125;  \u&#123;1f60e&#125;  \u&#123;1f47b&#125;  \u&#123;1f596&#125;  \u&#123;1f44d&#125;&#x27;</span>);</span><br><span class="line"><span class="built_in">print</span>(<span class="keyword">new</span> <span class="built_in">String</span>.fromCharCodes(input));</span><br></pre></td></tr></table></figure>
+<p>执行上面的代码，运行结果如下图所示：</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">□</span><br><span class="line"><span class="string">[55357, 56399]</span></span><br><span class="line"><span class="string">[128079]</span></span><br><span class="line">♥  □  □  □  □  □</span><br></pre></td></tr></table></figure>
+<p>在日常编程中，如果我们需要处理包含多字节字符的文本，那么<code>rune</code>类型的使用频率可能会相对较高。然而，在大多数情况下，Dart开发者可能不需要直接与<code>rune</code>类型打交道，因为Dart的<code>String</code>类型已经提供了对Unicode字符的内置支持。<br><code>rune</code>类型的使用频率取决于你的具体需求。如果你经常需要处理复杂的文本数据，特别是包含多字节字符的数据，那么<code>rune</code>类型可能会成为我们常用的一个工具。然而，对于大多数简单的文本处理任务，我们可能只需要使用<code>String</code>类型即可。</p>
+<h5 id="8-Symbol类型"><a href="#8-Symbol类型" class="headerlink" title="8.Symbol类型"></a>8.Symbol类型</h5><p>Symbol表示在Dart程序中声明的运算符或标识符。在Dart开发中，几乎很少用的Symbol类型，除非需要按照名称引用标识符的API，因为代码经过编译之后标识符的名称会发生改变，但是标识符的符号不会发生改变，如下所示：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(#radix);<span class="comment">//输出Symbol(&quot;radix&quot;)</span></span><br><span class="line"><span class="built_in">print</span>(#bar);<span class="comment">//输出Symbol(&quot;bar&quot;)</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-3-函数"><a href="#2-3-函数" class="headerlink" title="2.3 函数"></a>2.3 函数</h4><p>Dart是一门面向对象的编程语言，所以函数也是对象，而函数属于Function类型，这意味着Dart可以将函数作为变量传递给另一个函数，也可以吧Dart类的实例当作方法来调用，如下所示：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var_nobleGases = &#123;&#125;;</span><br><span class="line"><span class="built_in">bool</span> isNoble(<span class="built_in">int</span> atomicNumber)&#123;</span><br><span class="line">    return_nobleGases[atomicNumber]!=<span class="keyword">null</span>;&#125;</span><br></pre></td></tr></table></figure>
+<p>也可以使用箭头函数进行简化</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">bool</span> isNoble(<span class="built_in">int</span> atomicNumber)=&gt;_nobleGases[atomicNumber]!=<span class="keyword">null</span>;</span><br></pre></td></tr></table></figure>
+<h5 id="2-3-1-main"><a href="#2-3-1-main" class="headerlink" title="2.3.1 main()"></a>2.3.1 main()</h5><p>任何一个应用都必须有一个入口函数，Dart应用的main()就是它的入口函数。<br>main()的返回值为空，参数为一个可选的<code>List&lt;String&gt;</code>组数。<br>Flutter应用的main()如下所示：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> main()=&gt;runApp(<span class="keyword">new</span> Myapp());</span><br></pre></td></tr></table></figure>
+<h5 id="2-3-2-函数参数"><a href="#2-3-2-函数参数" class="headerlink" title="2.3.2 函数参数"></a>2.3.2 函数参数</h5><p>函数的参数类型有两种，分别是可选参数和必传参数<br>通常，必传参数会显示在参数列表的前面，后面再跟上可选参数。可选参数使用命名参数或者位置参数进行传值。</p>
+<p>Dart中的可选参数分为可选命名参数和可选位置参数两种<br>可选命名参数的参数部分使用{}包裹，如下所示：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> param(<span class="built_in">int</span> <span class="built_in">num</span>,&#123;<span class="built_in">String</span> name,<span class="built_in">int</span> range&#125;)&#123;<span class="comment">//可选命名参数</span></span><br><span class="line">&#125;</span><br><span class="line">param(<span class="number">10</span>,range:<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<p>可选位置参数的参数部分使用[]包裹，如下所示：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> param(<span class="built_in">int</span> <span class="built_in">num</span>,[<span class="built_in">String</span> where,<span class="built_in">int</span> range])&#123;<span class="comment">//可选位置参数</span></span><br><span class="line">&#125;</span><br><span class="line">param(<span class="number">10</span>,<span class="string">&#x27;shenzhen&#x27;</span>,<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+<p>除了可选参数外，有的函数的参数是必传的。<br>在Dart中，必传参数需要使用@required修饰符，如下所示：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> enableFlags(&#123;<span class="built_in">bool</span> bold,<span class="built_in">bool</span> hidden,<span class="meta">@required</span> <span class="built_in">bool</span> circle&#125;)&#123;<span class="comment">//必传参数</span></span><br><span class="line">&#125;</span><br><span class="line">enableFlags(bold:<span class="keyword">true</span>,circle:<span class="keyword">true</span>);</span><br></pre></td></tr></table></figure>
+<p>也可以给函数的参数设置默认值，如下所示：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> say(<span class="built_in">String</span> from,[<span class="built_in">String</span> device=<span class="string">&quot;andriod&quot;</span>,<span class="built_in">String</span> id])&#123; &#125;</span><br></pre></td></tr></table></figure>
+<h5 id="2-3-3-返回值"><a href="#2-3-3-返回值" class="headerlink" title="2.3.3 返回值"></a>2.3.3 返回值</h5><p>几乎所有的函数都会有一个返回值，如果没有明确指定返回值，那么函数体会隐式地添加一个”ruturn null;”语句，如下所示：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">foo()&#123;&#125;</span><br><span class="line"><span class="keyword">assert</span>(foo() == <span class="keyword">null</span>);</span><br><span class="line"><span class="built_in">print</span>(foo() == <span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
+<p>运行上面的代码，控制台会返回正确的信息</p>
+<h5 id="2-3-4-匿名函数"><a href="#2-3-4-匿名函数" class="headerlink" title="2.3.4 匿名函数"></a>2.3.4 匿名函数</h5><p>与其他编程语言相同，Dart也支持匿名函数。<br>匿名函数通常以lambda表达式或者闭包的形式存在，一个宁明函数可以有0个或者多个参数，参数之间使用逗号分隔，匿名函数的格式如下所示：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">([[<span class="built_in">Type</span>] paragm1[,...]])&#123;</span><br><span class="line">    <span class="comment">//函数体</span></span><br><span class="line">&#125;；</span><br></pre></td></tr></table></figure>
+<p>下面是一个包含无参数类型item的匿名函数。</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> list=[<span class="string">&#x27;apples&#x27;</span>,<span class="string">&#x27;bananas&#x27;</span>,<span class="string">&#x27;oranges&#x27;</span>];</span><br><span class="line">list.forEach((item)&#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;<span class="subst">$&#123;list.indexOf(item)&#125;</span>:<span class="subst">$item</span>&#x27;</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>上面的例子中，list数组里的每个元素都会调用这个匿名函数来输出元素位置和对应位置的值。<br>输出结果如下所示：</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">null</span><br><span class="line"><span class="number">0</span><span class="symbol">:apples</span></span><br><span class="line"><span class="number">1</span><span class="symbol">:bananas</span></span><br><span class="line"><span class="number">2</span><span class="symbol">:oranges</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-4-Dart运算符"><a href="#2-4-Dart运算符" class="headerlink" title="2.4 Dart运算符"></a>2.4 Dart运算符</h4><p>大家知道，计算机程序的最小单位是表达式，表达式主要由操作数和运算符组成。操作数可以是变量、常量、类、数组和方法，甚至还可以是表达式，而运算符则用来执行程序代码的相关运算。<br>Dart支持各种类型的运算符，并且部分运算符还支持重载操作。</p>
+<h5 id="2-4-1-算数运算符"><a href="#2-4-1-算数运算符" class="headerlink" title="2.4.1 算数运算符"></a>2.4.1 算数运算符</h5><p>Dart支持的算数运算符有+、—、*、&#x2F;、~&#x2F;、-expr和%等</p>
+<ul>
+<li>+：加法</li>
+<li>-：减法</li>
+<li>*：乘法</li>
+<li>&#x2F;：除法</li>
+<li>~&#x2F;：除法，取整</li>
+<li>expr：取负</li>
+<li>%：取余<br>除此之外，Dart还支持自增和自减运算符</li>
+<li>++var：先执行自执行操作</li>
+<li>var++：先使用值在执行自增操作</li>
+<li>–var：先执行自减操作</li>
+<li>var–：先使用值再执行自减操作</li>
+</ul>
+<h5 id="2-4-2-关系运算符"><a href="#2-4-2-关系运算符" class="headerlink" title="2.4.2 关系运算符"></a>2.4.2 关系运算符</h5><p>关系运算符是用来表示两个操作数或表达式关系的运算符，dart的关系运算符主要由&#x3D;&#x3D;、!&#x3D;、&gt;、&lt;、&gt;&#x3D;、&gt;&#x3D;构成，如下所示：</p>
+<h5 id="2-4-3-类型判定运算符"><a href="#2-4-3-类型判定运算符" class="headerlink" title="2.4.3 类型判定运算符"></a>2.4.3 类型判定运算符</h5><p>Dart的类型判定运算符由as、is和is!运算符构成，主要用于在运行时的进行类型检查，如下所示：</p>
+<ul>
+<li>as：判断是否属于某种类型</li>
+<li>is：对象具有指定的类型，返回true</li>
+<li>is!：对象具有指定的类型，返回false<br>其中，使用as运算符可以将对象强制转换成指定类型，如下所示：<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">123</span>;</span><br><span class="line"><span class="built_in">print</span>((a <span class="keyword">as</span> <span class="built_in">num</span>) <span class="keyword">is</span> <span class="built_in">num</span>);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h5 id="2-4-4-位运算符"><a href="#2-4-4-位运算符" class="headerlink" title="2.4.4 位运算符"></a>2.4.4 位运算符</h5><p>在Dart中，运算符主要有&amp;、~、|、^、&lt;&lt;、&gt;&gt;构成。<br>如下所示：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> value = <span class="number">0x22</span>;</span><br><span class="line"><span class="keyword">final</span> bitmask = <span class="number">0x0f</span>;</span><br><span class="line"><span class="built_in">print</span>((value&amp;bitmask)==<span class="number">0x02</span>);<span class="comment">//按位与</span></span><br><span class="line"><span class="built_in">print</span>((value~bitmask)==<span class="number">0x20</span>);<span class="comment">//按位取反</span></span><br><span class="line"><span class="built_in">print</span>((value|bitmask)==<span class="number">0x2f</span>);<span class="comment">//按位或</span></span><br><span class="line"><span class="built_in">print</span>((value^bitmask)==<span class="number">0x2d</span>);<span class="comment">//按位异或</span></span><br><span class="line"><span class="built_in">print</span>((value&lt;&lt;<span class="number">4</span>)==<span class="number">0x220</span>);<span class="comment">//按位左移</span></span><br><span class="line"><span class="built_in">print</span>((value&gt;&gt;<span class="number">4</span>)==<span class="number">0x02</span>);<span class="comment">//按位右移</span></span><br></pre></td></tr></table></figure>
+<h5 id="2-4-5-逻辑运算符"><a href="#2-4-5-逻辑运算符" class="headerlink" title="2.4.5 逻辑运算符"></a>2.4.5 逻辑运算符</h5><p>Dart的逻辑运算符由&amp;&amp;、||、!构成，如下所示：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="number">12</span>;</span><br><span class="line"><span class="built_in">print</span>(a&gt;<span class="number">10</span>&amp;&amp;a&lt;<span class="number">11</span>);<span class="comment">//false</span></span><br><span class="line"><span class="built_in">print</span>(a&gt;<span class="number">10</span>||a&lt;<span class="number">11</span>);<span class="comment">//true</span></span><br><span class="line"><span class="built_in">print</span>(!(a&gt;<span class="number">10</span>));<span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+<h5 id="2-4-6-赋值运算符"><a href="#2-4-6-赋值运算符" class="headerlink" title="2.4.6 赋值运算符"></a>2.4.6 赋值运算符</h5><p>在Dart中，最常见的赋值运算符是&#x3D;。初次之外，赋值运算符还包括复合运算符，常见的复合运算符包括-&#x3D;、&#x2F;&#x3D;、%&#x3D;、&gt;&gt;&#x3D;、^&#x3D;、*&#x3D;、~&#x2F;&#x3D;、&lt;&lt;&#x3D;、&amp;&#x3D;、|&#x3D;<br>如下所示：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> nullVar;</span><br><span class="line"><span class="keyword">var</span> intVar=<span class="number">12</span>;</span><br><span class="line">nullVar??=inVar;</span><br><span class="line"><span class="built_in">print</span>(nullVar);</span><br><span class="line"><span class="keyword">var</span> strVar=intVar&gt;<span class="number">10</span>?<span class="string">&quot;a&quot;</span>:<span class="string">&quot;b&quot;</span>;</span><br><span class="line"><span class="built_in">print</span>(strVar);</span><br></pre></td></tr></table></figure>
+<h5 id="2-4-7-条件表达式"><a href="#2-4-7-条件表达式" class="headerlink" title="2.4.7 条件表达式"></a>2.4.7 条件表达式</h5><p>Dart提供了三目表达式和??运算符来代替if-else条件表达式，如下所示：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">condition ? expr1 : expr2<span class="comment">//三目运算符</span></span><br><span class="line">expr1 ?? expr2<span class="comment">//??运算符</span></span><br></pre></td></tr></table></figure>
+<p>通常，如果判定条件是Bool值，可以考虑使用?:运算符，如果判定是否为null，则可以考虑使用??运算符。</p>
+<h5 id="2-4-8-级联运算符"><a href="#2-4-8-级联运算符" class="headerlink" title="2.4.8 级联运算符"></a>2.4.8 级联运算符</h5><p>Dart中的级联运算符用..表示，级联运算符可以对同一个对象进行一系列操作。<br>级联运算符不仅可以调用函数，还可以访问同一对象上的字段属性。级联运算符可以简化语法，如下所示：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">querySelector</span>(<span class="string">&#x27;#confirm&#x27;</span>)<span class="comment">//获取对象</span></span><br><span class="line">..text=<span class="string">&#x27;确定&#x27;</span>;</span><br><span class="line">..classes.add(<span class="string">&#x27;important&#x27;</span>)</span><br><span class="line">..onClick.listen((e)=&gt;<span class="built_in">window</span>.alert(<span class="string">&#x27;确定&#x27;</span>));</span><br></pre></td></tr></table></figure>
+<p>上面的例子里，第一句用<code>querySelector()</code>，该函数会返回获取的对象，然后为该对象设置文本值和执行导入，最后为该对象添加一个点击监听事件。如果不使用级联运算符的话，上面的实例可以写为：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> button=<span class="built_in">querySelector</span>(<span class="string">&#x27;#confirm&#x27;</span>);</span><br><span class="line">button.text=<span class="string">&#x27;Confirm&#x27;</span>;</span><br><span class="line">button.classes.add(<span class="string">&#x27;important&#x27;</span>);</span><br><span class="line">button.onClick.listen((e)=&gt;<span class="built_in">window</span>.alert(<span class="string">&#x27;Confirmed!&#x27;</span>));</span><br></pre></td></tr></table></figure>
+<p>并且级联运算符还支持嵌套，如下所示：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> addressBook=(AddressBookBuilder()</span><br><span class="line">..name=<span class="string">&#x27;jeeny&#x27;</span>;</span><br><span class="line">..phone=(PhoneNumberBuilder()</span><br><span class="line">    ..number=<span class="string">&#x27;123-456-7890&#x27;</span></span><br><span class="line">    ..lable=<span class="string">&#x27;home&#x27;</span>)</span><br><span class="line">    .build())</span><br><span class="line">.build();</span><br></pre></td></tr></table></figure>
+<p><strong>《Flutter跨平台开发与实战》这本书非常荒谬，非常不适合小白新手入门</strong></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/07/02/%E3%80%8AFlutter%E8%B7%A8%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E6%88%98%E3%80%8B/" data-id="clzw2o4xv0006imzo0t8797jr" data-title="Flutter" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/07/02/%E3%80%8AFlutter%E8%B7%A8%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E6%88%98%E3%80%8B/" data-id="cm08xwm0v0009jtzo2ny7dkz3" data-title="Flutter" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -297,7 +382,7 @@ const关键字不仅可以用于声明常量，还可以用来创建常量值，
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/06/23/Flex%E5%B8%83%E5%B1%80/" data-id="clzw2o4xw000aimzo8mrjdjym" data-title="Flex布局" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/06/23/Flex%E5%B8%83%E5%B1%80/" data-id="cm08xwm0p0000jtzoet5tg1go" data-title="Flex布局" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -368,7 +453,7 @@ const关键字不仅可以用于声明常量，还可以用来创建常量值，
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/06/21/React%20Native/" data-id="clzw2o4xv0005imzo2tix85wu" data-title="React Native" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/06/21/React%20Native/" data-id="cm08xwm0u0006jtzo4qzj0z6b" data-title="React Native" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -681,7 +766,7 @@ class MyClass extends myMixin &#123;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/06/03/%E5%89%8D%E7%AB%AF%E5%BA%94%E7%9F%A5%E5%BA%94%E4%BC%9A/" data-id="clzw2o4xw0009imzody7a2ln0" data-title="前端应知应会" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/06/03/%E5%89%8D%E7%AB%AF%E5%BA%94%E7%9F%A5%E5%BA%94%E4%BC%9A/" data-id="cm08xwm0v000ajtzo68ih8uuf" data-title="前端应知应会" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -754,7 +839,7 @@ class MyClass extends myMixin &#123;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/01/JS%E7%9A%84%E6%8F%90%E5%8D%87/" data-id="clzw2o4xu0004imzobflva1hz" data-title="JavaScript的提升" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/01/JS%E7%9A%84%E6%8F%90%E5%8D%87/" data-id="cm08xwm0t0004jtzo1a063oga" data-title="JavaScript的提升" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -801,7 +886,7 @@ class MyClass extends myMixin &#123;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/04/22/JS%E5%8F%8A%E7%BC%96%E8%BE%91%E5%8E%9F%E7%90%86/" data-id="clzw2o4xt0002imzo6ddnhq0f" data-title="JS及编辑原理" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/04/22/JS%E5%8F%8A%E7%BC%96%E8%BE%91%E5%8E%9F%E7%90%86/" data-id="cm08xwm0u0005jtzo7cp05hv8" data-title="JS及编辑原理" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -878,7 +963,7 @@ class MyClass extends myMixin &#123;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/03/20/Hexo%E7%9A%84%E6%90%AD%E5%BB%BA/" data-id="clzw2o4xs0001imzoflxx2qon" data-title="Hexo的搭建" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/03/20/Hexo%E7%9A%84%E6%90%AD%E5%BB%BA/" data-id="cm08xwm0s0002jtzob0dih34o" data-title="Hexo的搭建" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
